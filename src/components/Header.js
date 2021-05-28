@@ -3,10 +3,15 @@ import {
     MenuIcon, 
     SearchIcon, 
     ShoppingCartIcon
-} from '@heroicons/react/outline';
+} from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from 'next-auth/client'
+import { useRouter } from 'next/router';
+import { useSelector } from "react-redux";
+import {selectItems} from "../slices/basketSlice"
 function Header() {
-    
+    const [ session, loading ] = useSession();
+    const router = useRouter();
+    const items = useSelector(selectItems);
     return (
         <header>
            
@@ -19,6 +24,7 @@ function Header() {
          height={40}
          objectFit="contain"
          className="cursor-pointer"
+         onClick={() => router.push('/')}
          />
         </div>
 <div className="hidden relative items-center flex-grow cursor-pointer rounded-md h-10 bg-yellow-400 sm:flex hover:bg-yellow-500">
@@ -26,20 +32,21 @@ function Header() {
     <SearchIcon className="h-12 p-4"/>
     </div>
     {/* right navbar */}
-<div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-    <div onClick= { signIn } className="cursor-pointer link">
-        <p >Hello Rishabh</p>
-        <p className="font-extrabold md:text-sm">account</p>
-        
-    </div>
-
+    
+    <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
+   <div onClick={!session ? signIn : signOut} className="link">
+                     <p className="hover:underline font-bold"> {session ? `Hello, ${session.user.name}` : 'Hello,Sign In'}</p>
+                        <p className="font-extrabold md:text-sm">Account & Lists</p>
+                    </div>
+                    
+                    
     <div className="link"><p >Returns</p>
     <p className="font-extrabold md:text-sm" >& Orders</p>
     </div>
 
-    <div className="link relative flex items-center">
-    <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded text-black font-bold">0</span>
-        <ShoppingCartIcon className="h-10"  />
+    <div className="link relative flex items-center"  onClick={() => router.push('/checkout')}>
+    <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded text-black font-bold">{items.length}</span>
+        <ShoppingCartIcon className="h-10"   />
     <p className="font-extrabold md:text-sm hidden md:inline mt-2 ">Basket</p>
     {/* md means medium screen when we reach md the basket is visible else it is hidden */}
     </div>
