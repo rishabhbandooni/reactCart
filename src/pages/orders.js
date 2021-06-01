@@ -2,12 +2,12 @@ import { getSession, useSession } from 'next-auth/client'
 import Header from '../components/Header'
 import db from '../../firebase'
 import Head from 'next/head'
-import moment from 'moment'
+
 import Order from '../components/Order'
 
 function Orders({ orders }) {
     const [session] = useSession()
-    console.log(orders)
+ 
        return (
         <>
         <Head>
@@ -75,5 +75,8 @@ export async function getServerSideProps(context) {
             ).data
         }))
     )
-  
+    return { props: {
+        orders
+    } }
 }
+  
