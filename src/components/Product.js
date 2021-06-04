@@ -19,7 +19,7 @@ function Product({id,title,price,description,category,image}) {
       
     };
     return (
-       <div className="relative flex flex-col m-5  bg-white z-30 p-10  " >
+       <div className="relative flex flex-col m-5  border-2 border-yellow-500  bg-white text-black z-30 p-10 transition duration-500 ease-in-out  transform hover:-translate-y-1 hover:scale-110  ...  " >
            <p className="absolute top-2 right-2 text-xs italic text-gray-400">{category}</p>
            <Image src={image}
             width={200}
@@ -35,7 +35,7 @@ function Product({id,title,price,description,category,image}) {
             <p className="text-xs my-2 line-clamp-2  ">{description}</p>
                   
       <div className="mb-5">
-     <Currency quantity={price}  />
+     <Currency quantity={price *73} currency="INR"  />
                     </div>
                     {hasPrime && (
                         <div className="flex items-center space-x-2 -mt-5">

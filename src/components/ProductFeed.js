@@ -34,7 +34,9 @@ category={category}
 image={image}
 />
     ))}
+
 </div>
+
 {products.slice(5,products.length)
 .map(({id,title,price,description,category,image}) => (
 <Product 
@@ -47,7 +49,7 @@ category={category}
 image={image}
 />
     ))}
-     
+    
         </div>
         
       

@@ -74,7 +74,7 @@ if (result.error){
         <>
         <h2 className="whitespace-nowrap">Subtotal ({items.length} items):
         <span className="font-bold"> 
-<Currency quantity={total}  />
+<Currency quantity={total * 73} currency="INR"  />
         </span>
         </h2>
 

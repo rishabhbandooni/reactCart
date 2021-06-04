@@ -3,6 +3,7 @@ import Image from "next/image";
 import Currency from 'react-currency-formatter';
 import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 import { useDispatch } from "react-redux";
+
 function CheckoutProduct( {
     id,
     title,
@@ -25,7 +26,7 @@ const removeItemFromBasket =() =>{
     dispatch(removeFromBasket({id}));
 }
     return (
-        <div className='grid grid-cols-5'> 
+        <div className='grid grid-cols-5  transition duration-500 ease-in-out  transform hover:-translate-y-1 hover:scale-110 ...'> 
         <Image src={image} height ={200} width={200} objectFit="contain" />
       
          <div className="col-span-3 mx-5">
@@ -39,7 +40,7 @@ const removeItemFromBasket =() =>{
         </div>
         <p className="text-xs mt-2 mb-2 line-clamp-3">{description}</p>
      
-             <Currency quantity={price} /> 
+             <Currency quantity={price * 73} currency ="INR" /> 
 
               {hasPrime && (
                   <div className="flex items-center space-x-2">

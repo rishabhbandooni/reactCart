@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import { getSession } from "next-auth/client";
 export default function Home({products}) {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gradient-to-r  from-pink-500 to-yellow-500  hover:from-green-400 hover:to-blue-500 ...">
       <Head>
         <title>Amazon </title>
       </Head>

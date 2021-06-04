@@ -15,13 +15,13 @@ function Header() {
     return (
         <header>
            
-            <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
+            <div className="flex items-center bg-amazon_blue-light p-1 flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
             {/* sm:flex-grow-0 means it wont grow if screen goes small or larger for mobile responsive */}
          <Image 
-         src="https://links.papareact.com/f90" 
+         src="https://repository-images.githubusercontent.com/219324208/da2f4100-5d9d-11ea-9dea-8acf11e67ca0" 
          width={150}
-         height={40}
+         height={50}
          objectFit="contain"
          className="cursor-pointer"
          onClick={() => router.push('/')}
@@ -33,7 +33,7 @@ function Header() {
     </div>
     {/* right navbar */}
     
-    <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
+    <div className="text-yellow-400 flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
    <div onClick={!session ? signIn : signOut} className="link">
                      <p className="hover:underline font-bold"> {session ? `Hello, ${session.user.name}` : 'Hello,Sign In'}</p>
                         <p className="font-extrabold md:text-sm">Account & Lists</p>
@@ -56,7 +56,7 @@ function Header() {
 
         </div>
         {/* Bottom nav */}
-        <div className="flex space-x-3 p-2 pl-6 items-center bg-amazon_blue-light text-white text-sm">
+        <div className="flex space-x-3 p-2 pl-6 items-center bg-amazon_blue text-yellow-600  text-sm">
         <p className="link flex items-center"> 
                     <MenuIcon className="h-6 mr-1"/>
                     All

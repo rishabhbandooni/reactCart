@@ -3,7 +3,7 @@ import Currency from 'react-currency-formatter';
 
 function Order({ id, amount, amountShipping, items, timestamp, images }) {
     return (
-        <div className="relative rounded-md border">
+        <div className="relative rounded-md border ">
             <div className="flex items-center space-x-10 p-5 bg-gray-200 text-sm text-gray-600">
                 <div>
                     <p className="font-bold text-xs">Order Placed</p>
@@ -12,8 +12,8 @@ function Order({ id, amount, amountShipping, items, timestamp, images }) {
                 <div>
                     <p className="font-bold text-xs">Total</p>
                     <p>
-                        <Currency quantity={amount}/> - Next Day delivery{" "}
-                        <Currency quantity={amountShipping}/>
+                        <Currency quantity={amount *73 } currency="INR"/> - Next Day delivery{" "}
+                        <Currency quantity={amountShipping} />
                     </p>
                 </div>
 
