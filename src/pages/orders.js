@@ -13,7 +13,7 @@ function Orders({ orders }) {
         <Head>
             <title>Orders | Amazon</title>
         </Head>
-        <div className="bg-black h-screen">
+        <div className="bg-gray-100 h-screen">
             <Header />
 
             <main className="max-w-screen-lg mx-auto  p-10">
